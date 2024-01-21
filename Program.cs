@@ -17,12 +17,13 @@ namespace EmployeeWageComputation
 
             int wagePerHrs = 20;
             int fullDayHrs = 8;
+            int partTimeHrs = 8;
 
             if (attendance == 1)
             {
                 Console.WriteLine("Employee is Present today");
 
-                int dailyWage = wagePerHrs * fullDayHrs;
+                int dailyWage = wagePerHrs * (fullDayHrs + partTimeHrs) ;
                 Console.Write($"Daily Employee Wage : {dailyWage}");
             }
             else
