@@ -18,6 +18,7 @@ namespace EmployeeWageComputation
             int wagePerHrs = 20;
             int fullDayHrs = 8;
             int partTimeHrs = 8;
+            int workingDayPerMonth = 20;
 
             switch(attendance)
             {
@@ -25,10 +26,13 @@ namespace EmployeeWageComputation
                     Console.WriteLine("Employee is Present today");
 
                     int dailyWage = wagePerHrs * (fullDayHrs + partTimeHrs) ;
-                    Console.Write($"Daily Employee Wage : {dailyWage}");
+                    Console.WriteLine($"Daily Employee Wage : {dailyWage}");
+                    int monthlyWage = workingDayPerMonth * dailyWage;
+                    Console.WriteLine($"Monthly Employee Wage : {monthlyWage}");
                     break;
                 case 1:
                     Console.WriteLine("Employee is Absent today");
+                    break;
             }
 
 
