@@ -19,16 +19,16 @@ namespace EmployeeWageComputation
             int fullDayHrs = 8;
             int partTimeHrs = 8;
 
-            if (attendance == 1)
+            switch(attendance)
             {
-                Console.WriteLine("Employee is Present today");
+                case 0:
+                    Console.WriteLine("Employee is Present today");
 
-                int dailyWage = wagePerHrs * (fullDayHrs + partTimeHrs) ;
-                Console.Write($"Daily Employee Wage : {dailyWage}");
-            }
-            else
-            {
-                Console.WriteLine("Employee is Absent today");
+                    int dailyWage = wagePerHrs * (fullDayHrs + partTimeHrs) ;
+                    Console.Write($"Daily Employee Wage : {dailyWage}");
+                    break;
+                case 1:
+                    Console.WriteLine("Employee is Absent today");
             }
 
 
