@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EmployeeWageComputation
 {
@@ -12,20 +8,44 @@ namespace EmployeeWageComputation
         {
             Console.WriteLine("Welcome to Employee Wage Computaion Program.");
 
-            int totalNoOfDays = 20;
-            int totalNoOfHrs = 100;
-            int wageRate = 20;
-            int daycount = 0;
-            int hrscount = 0;
+            Random random = new Random();
+            int wagePerHrs = 20;
+            int fullDayHrs = 8;
+            int partTimeHrs = 8;
+            int workingDays = 20;
+            int totalWorkingHours = 100;
 
-            while (daycount <= totalNoOfDays && hrscount <= totalNoOfHrs)
+            int totalWage = 0;
+            int totalHours = 0;
+            int daysWorked = 0;
+
+            while (daysWorked < workingDays && totalHours < totalWorkingHours)
             {
-                daycount += 1;
-                hrscount += 8;
-                Console.WriteLine($"Your salary at end of day {daycount} is " + (Convert.ToInt32(hrscount * wageRate)));
+                int attendance = random.Next(0, 2);
 
+                switch (attendance)
+                {
+                    case 0:
+                        Console.WriteLine("Employee is Present today");
 
+                        int dailyWage = wagePerHrs * (fullDayHrs + partTimeHrs);
+                        Console.WriteLine($"Daily Employee Wage : {dailyWage}");
+
+                        totalWage += dailyWage;
+                        totalHours += fullDayHrs + partTimeHrs;
+                        daysWorked++;
+
+                        break;
+                    case 1:
+                        Console.WriteLine("Employee is Absent today");
+                        break;
+                }
             }
+
+            Console.WriteLine($"Total Monthly Employee Wage : {totalWage}");
+            Console.WriteLine($"Total Working Days : {daysWorked}");
+            Console.WriteLine($"Total Working Hours : {totalHours}");
+
             Console.ReadLine();
         }
     }
