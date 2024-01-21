@@ -15,14 +15,21 @@ namespace EmployeeWageComputation
             Random random = new Random();
             int attendance = random.Next(0, 2);
 
+            int wagePerHrs = 20;
+            int fullDayHrs = 8;
+
             if (attendance == 1)
             {
-                Console.WriteLine("Present");
+                Console.WriteLine("Employee is Present today");
+
+                int dailyWage = wagePerHrs * fullDayHrs;
+                Console.Write($"Daily Employee Wage : {dailyWage}");
             }
             else
             {
-                Console.WriteLine("Absent");
+                Console.WriteLine("Employee is Absent today");
             }
+
 
 
             Console.ReadLine();
