@@ -12,31 +12,20 @@ namespace EmployeeWageComputation
         {
             Console.WriteLine("Welcome to Employee Wage Computaion Program.");
 
-            Random random = new Random();
-            int attendance = random.Next(0, 2);
+            int totalNoOfDays = 20;
+            int totalNoOfHrs = 100;
+            int wageRate = 20;
+            int daycount = 0;
+            int hrscount = 0;
 
-            int wagePerHrs = 20;
-            int fullDayHrs = 8;
-            int partTimeHrs = 8;
-            int workingDayPerMonth = 20;
-
-            switch(attendance)
+            while (daycount <= totalNoOfDays && hrscount <= totalNoOfHrs)
             {
-                case 0:
-                    Console.WriteLine("Employee is Present today");
+                daycount += 1;
+                hrscount += 8;
+                Console.WriteLine($"Your salary at end of day {daycount} is " + (Convert.ToInt32(hrscount * wageRate)));
 
-                    int dailyWage = wagePerHrs * (fullDayHrs + partTimeHrs) ;
-                    Console.WriteLine($"Daily Employee Wage : {dailyWage}");
-                    int monthlyWage = workingDayPerMonth * dailyWage;
-                    Console.WriteLine($"Monthly Employee Wage : {monthlyWage}");
-                    break;
-                case 1:
-                    Console.WriteLine("Employee is Absent today");
-                    break;
+
             }
-
-
-
             Console.ReadLine();
         }
     }
